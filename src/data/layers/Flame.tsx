@@ -244,7 +244,11 @@ const layer = createLayer("f", () => {
         layerID: id,
         display: jsx(() => <img src="./nodes/flame.png" />),
         color,
-        reset
+        reset,
+        glowColor: () =>
+            upgradesR1.some(u => u.canPurchase.value) || upgradesR2.some(u => u.canPurchase.value)
+                ? "red"
+                : ""
     }));
 
     const resetButton = createResetButton(() => ({

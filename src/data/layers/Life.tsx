@@ -273,7 +273,8 @@ const layer = createLayer("l", () => {
         layerID: id,
         display: jsx(() => <img src="./nodes/life.png" />),
         color,
-        reset
+        reset,
+        glowColor: () => (buyables.some(b => b.canPurchase.value) ? "red" : "")
     }));
 
     const resetButton = createResetButton(() => ({
